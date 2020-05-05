@@ -16,7 +16,7 @@ public class SquadController {
     @Autowired
     private SquadDao squadDao;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String main(Model model){
         model.addAttribute("allSquads", squadDao.findAll());
         return "index";
@@ -32,7 +32,7 @@ public class SquadController {
     @PostMapping("/add")
     public String save(@ModelAttribute("newSquad") Squad squad){
         squadDao.save(squad);
-        return "redirect:/";
+        return "redirect:/squad";
     }
 
     @GetMapping("/search/{name}")

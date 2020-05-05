@@ -17,8 +17,10 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private StudentDao studentDao;
+    @Autowired
+    private SquadDao squadDao;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String main(Model model){
         model.addAttribute("allStudents", studentDao.findAll());
         return "index";
@@ -28,13 +30,15 @@ public class StudentController {
     public String showForm(Model model){
         Student student = new Student();
         model.addAttribute("newStudent", student);
+        List<Squad> squads = squadDao.findAll();
+        model.addAttribute("squads", squads);
         return "new_student";
     }
 
     @PostMapping("/add")
     public String save(@ModelAttribute("newStudent") Student student){
         studentDao.save(student);
-        return "redirect:/";
+        return "redirect:/student";
     }
 
     @GetMapping("/search/{lastName}")

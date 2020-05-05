@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>nowy uczen</title>
 </head>
 <body>
-
+<form th:action="@{#}" th:object="${newStudent}" method="post">
+    <table>
+        <tr>
+            <td>Imię:</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Nazwisko:</td>
+            <td><input type="text" th:field="*{lastName}"></td>
+        </tr>
+        <tr>
+            <td>Pesel:</td>
+            <td><input type="text" th:field="*{pesel}"></td>
+        </tr>
+        <tr>
+            <td>Klasa:</td>
+            <td>
+                <select th:field="*{squad}">
+                    <option th:each="Squad : ${squads}" th:value="${Squad.id}" th:text="${Squad.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

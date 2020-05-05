@@ -44,10 +44,10 @@
         <h2  th:class="title-object">Pesel</h2>
         <div th:class="value-object" th:text="${Student.pesel}">Pesel</div>
     </div>
-    <div>
-        <h2  th:class="title-object">Klasa</h2>
-        <a th:href="@{'/squad/search/' + ${Student.squad.name}}" th:class="value-object" th:text="${Student.schoolClass.name}">Pesel</a>
-    </div><br>
+<!--    <div>-->
+<!--        <h2  th:class="title-object">Klasa</h2>-->
+<!--        <a th:href="@{'/squad/search/' + ${Student.squad.name}}" th:class="value-object" th:text="${Student.squad.name}">Klasa</a>-->
+<!--    </div><br>-->
     <a th:href="@{'/student/search/' + ${Student.lastName}}">pokaż ucznia</a>
     <hr>
 </div>

@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Szukaj szkoły</title>
 </head>
 <body>
-
+<div th:id="main-box" th:each="Pupil : ${studentsByLastname}">
+    <div>
+        <h2 th:class="title-object">Imię</h2>
+        <div th:class="value-object" th:text="${Pupil.name}"> </div>
+    </div>
+    <div>
+        <h2 th:class="title-object">Nazwisko</h2>
+        <div th:class="value-object" th:text="${Pupil.lastName}"> </div>
+    </div>
+    <div>
+        <h2  th:class="title-object">Pesel</h2>
+        <div th:class="value-object" th:text="${Pupil.pesel}"> </div>
+    </div>
+    <div>
+        <h2  th:class="title-object">Klasa</h2>
+        <div th:class="value-object" th:text="${Pupil.squad.name}"> </div>
+    </div>
+    <hr>
+</div>
 </body>
 </html>
