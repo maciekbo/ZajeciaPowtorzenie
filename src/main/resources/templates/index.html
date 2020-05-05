@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>strona główna</title>
+    <title>klasy</title>
 </head>
 <body>
 
+<div th:id="main-box" th:each="Squad : ${allSquads}">
+    <div>
+        <h2 th:class="title-object">Nazwa</h2>
+        <div th:class="value-object" th:text="${Squad.name}">Nazwa</div>
+    </div>
+    <div>
+        <h2 th:class="title-object">Profil</h2>
+        <div th:class="value-object" th:text="${Squad.profile}">Profil</div>
+    </div>
+    <div>
+        <h2  th:class="title-object">Wychowawca</h2>
+        <div th:class="value-object" th:text="${Squad.headTeacher}">Wychowawca</div>
+    </div>
+    <div th:class="title-object">
+        <h2>Uczniowie</h2>
+        <div th:id="main-box" th:each="Squad.StudentList : ${Student}">
+            <div>
+                <div th:class="students" th:text="${Student.name} + ' ' + ${Student.surName}"></div>
+            </div>
+        </div>
+    </div>
+    <a th:href="@{'/squad/search/' + ${Squad.name}}">pokaż klasę</a>
+    <a th:href="@{'/squad/delete/' + ${Squad.id}}">usuń</a>
+</div>
+<div th:id="main-box" th:each="Student : ${allStudents}">
+    <hr>
+    <div>
+        <h2 th:class="title-object">Imię</h2>
+        <div th:class="value-object" th:text="${Student.name}">Imię</div>
+    </div>
+    <div>
+        <h2 th:class="title-object">Nazwisko</h2>
+        <div th:class="value-object" th:text="${Student.lastName}">Nazwisko</div>
+    </div>
+    <div>
+        <h2  th:class="title-object">Pesel</h2>
+        <div th:class="value-object" th:text="${Student.pesel}">Pesel</div>
+    </div>
+    <div>
+        <h2  th:class="title-object">Klasa</h2>
+        <a th:href="@{'/squad/search/' + ${Student.squad.name}}" th:class="value-object" th:text="${Student.schoolClass.name}">Pesel</a>
+    </div><br>
+    <a th:href="@{'/student/search/' + ${Student.lastName}}">pokaż ucznia</a>
+    <hr>
+</div>
 </body>
 </html>

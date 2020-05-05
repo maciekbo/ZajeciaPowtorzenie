@@ -26,8 +26,8 @@ public class StudentController {
 
     @RequestMapping("/add")
     public String showForm(Model model){
-        Squad squad = new Squad();
-        model.addAttribute("newStudent", squad);
+        Student student = new Student();
+        model.addAttribute("newStudent", student);
         return "new_student";
     }
 

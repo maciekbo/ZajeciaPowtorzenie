@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>nowa klasa</title>
+    <title>Dodawanie klas</title>
 </head>
 <body>
-
+<form th:action="@{#}" th:object="${newSquad}" method="post">
+    <table>
+        <tr>
+            <td>Nazwa:</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Profil:</td>
+            <td><input type="text" th:field="*{profile}"></td>
+        </tr>
+        <tr>
+            <td>Wychowawca:</td>
+            <td><input type="text" th:field="*{headTeacher}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
