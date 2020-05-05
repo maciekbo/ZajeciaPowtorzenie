@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<div th:each="squad: ${allSquads}">
+<p th:text="${squad.name}"></p>
+<p th:text="${squad.profile}"></p>
+<div th:each="students: ${squad.studentList}">
+    <p th:text="${students.name}"></p>
+    <p th:text="${students.lastName}"></p>
+    <p th:text="${students.pesel}"></p>
+</div>
+    <a th:href="@{'/squad/search/'  + ${squad.id}}">Szczegóły </a>
+</div>
 </body>
 </html>
