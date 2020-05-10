@@ -11,13 +11,19 @@ public class Squad {
     private Long id;
     private String name;
     private String profile;
-
     @OneToOne
     private Teacher teacher;
 
     @OneToMany(targetEntity = Student.class, mappedBy = "squad")
-    private List<Student> StudentList;
+    private List<Student> studentList;
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public Long getId() {
         return id;
@@ -43,19 +49,12 @@ public class Squad {
         this.profile = profile;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
 
     public List<Student> getStudentList() {
-        return StudentList;
+        return studentList;
     }
 
     public void setStudentList(List<Student> studentList) {
-        StudentList = studentList;
+        this.studentList = studentList;
     }
 }
