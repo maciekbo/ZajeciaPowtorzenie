@@ -16,10 +16,10 @@
         <h2 th:class="title-object">Profil</h2>
         <div th:class="value-object" th:text="${Squad.profile}">Profil</div>
     </div>
-    <div>
-        <h2  th:class="title-object">Wychowawca</h2>
-        <div th:class="value-object" th:text="${Squad.headTeacher}">Wychowawca</div>
-    </div>
+<!--    <div>-->
+<!--        <h2  th:class="title-object">Wychowawca</h2>-->
+<!--        <div th:class="value-object" th:text="${Squad.teacher.name} + ' ' + ${Squad.teacher.lastName}}">Wychowawca</div>-->
+<!--    </div>-->
     <div th:class="title-object">
         <h2>Uczniowie</h2>
         <div th:id="main-box" th:each="Squad.StudentList : ${Student}">
