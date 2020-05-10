@@ -11,7 +11,9 @@ public class Squad {
     private Long id;
     private String name;
     private String profile;
-    private String headTeacher;
+
+    @OneToOne
+    private Teacher teacher;
 
     @OneToMany(targetEntity = Student.class, mappedBy = "squad")
     private List<Student> StudentList;
@@ -41,12 +43,12 @@ public class Squad {
         this.profile = profile;
     }
 
-    public String getHeadTeacher() {
-        return headTeacher;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setHeadTeacher(String headTeacher) {
-        this.headTeacher = headTeacher;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public List<Student> getStudentList() {

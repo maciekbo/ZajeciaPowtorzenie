@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<form th:action="@{#}" th:object="${newTeacher}" method="post">
+    <table>
+        <tr>
+            <td>Imię:</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Nazwisko:</td>
+            <td><input type="text" th:field="*{lastName}"></td>
+        </tr>
+        <tr>
+            <td>Przedmiot:</td>
+            <td><input type="text" th:field="*{subject}"></td>
+        </tr>
+        <tr>
+            <td>Telefon:</td>
+            <td><input type="text" th:field="*{phoneNumber}"></td>
+        </tr>
+        <tr>
+            <td>E-Mail:</td>
+            <td><input type="text" th:field="*{Email}"></td>
+        </tr>
+        <tr>
+            <td>Klasa:</td>
+            <td>
+                <select th:field="*{squad}">
+                    <option th:each="Squad : ${squads}" th:value="${Squad.id}" th:text="${Squad.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
